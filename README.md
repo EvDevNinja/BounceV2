@@ -1,13 +1,15 @@
 # TCP Bounce V2.0.0
 
-###Installation
-1. Download zip and unpack or clone this git
+### Installation
+1. Download
+	* clone this git `git clone https://github.com/EvDevNinja/BounceV2/` or
+	* zip and unpack `https://github.com/EvDevNinja/BounceV2/archive/master.zip`
 2. `cd` into the directory
 3. run `npm install`
 
 ---
 
-###Configuration
+### Configuration
 Edit app.js
 
 ```javascript
@@ -23,6 +25,6 @@ const config = {
 
 ---
 
-###Starting The Server
+### Starting The Server
 1. `cd` into the directory
 2. run `npm start`
