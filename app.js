@@ -4,12 +4,12 @@ const net = require('net');
 const numCPUs = require('os').cpus().length;
 
 const config = {
-  "8080":{//External Port
-    "evdev.online":{//Search
-      "internal":"localhost",
-      "port":80
-    }
-  }
+	"8080":{//External Port
+		"aiden.evdev.online":{//Filter
+			"internal":"localhost",//Internal Address
+			"port":80 //Internal Port
+		}
+	}
 }
 
 if(cluster.isMaster){
