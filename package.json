@@ -1,0 +1,15 @@
+{
+  "name": "bouncev2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Everett Go",
+  "license": "ISC",
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "os": "^0.1.1"
+  }
+}
