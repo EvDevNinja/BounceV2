@@ -2,6 +2,7 @@
 const cluster = require('cluster');
 const net = require('net');
 const numCPUs = require('os').cpus().length;
+const fs = require('fs');
 
 if (!fs.existsSync('./config.json')) {
 	fs.writeFileSync('./config.json', '{\n\t"8080":{\n\t\t"aiden.evdev.online":{\n\t\t\t"internal":"localhost",\n\t\t\t"port":80\n\t\t}\n\t}\n}', 'utf8')
