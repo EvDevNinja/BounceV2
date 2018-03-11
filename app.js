@@ -30,6 +30,7 @@ if(cluster.isMaster){
 	      socket.once('data', (buffer) => {
 	        for (var search in config[externalPortStr]) {
 	          if (buffer.includes(search) || search == "*") {
+							console.log(`Worker ${process.pid}'s connection on ${externalPort} matched config ${config[externalPortStr]}`)
 	            var client = net.createConnection(config[externalPortStr][search].port, config[externalPortStr][search].internal, () => {
 								client.write(buffer);
 	            });
@@ -40,12 +41,14 @@ if(cluster.isMaster){
 	              console.log(err);
 	            });
 	            client.on('end', () => {
+								console.log(`Worker ${process.pid}'s connection on ${externalPort} local client ended the connection.`)
 	              socket.end();
 	            });
 	            socket.on('data', (dat) => {
 	              client.write(dat);
 	            });
 	            socket.on('end', () => {
+								console.log(`Worker ${process.pid}'s connection on ${externalPort} remote socket ended the connection.`)
 	              client.end()
 	            });
 	            return;
