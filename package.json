@@ -1,7 +1,7 @@
 {
   "name": "bouncev2",
   "version": "1.0.0",
-  "description": "",
+  "description": "### Installation 1. Download \t* clone this git `git clone https://github.com/EvDevNinja/BounceV2/` or \t* zip and unpack `https://github.com/EvDevNinja/BounceV2/archive/master.zip` 2. `cd` into the directory 3. run `npm install`",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -13,5 +13,14 @@
     "fs": "0.0.1-security",
     "net": "^1.0.2",
     "os": "^0.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvDevNinja/BounceV2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EvDevNinja/BounceV2/issues"
+  },
+  "homepage": "https://github.com/EvDevNinja/BounceV2#readme"
 }
