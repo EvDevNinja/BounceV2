@@ -26,11 +26,12 @@ if(cluster.isMaster){
     if (externalPort == undefined) { continue; } //Skip
 		(function(externalPort){
 			var server = net.createServer((socket) => {
+				console.log(`Worker ${process.pid} got A new connection on ${externalPort}`)
 	      socket.once('data', (buffer) => {
 	        for (var search in config[externalPortStr]) {
 	          if (buffer.includes(search) || search == "*") {
 	            var client = net.createConnection(config[externalPortStr][search].port, config[externalPortStr][search].internal, () => {
-	              socket.write(buffer);
+								client.write(buffer);
 	            });
 	            client.on('data', (dat) => {
 	              socket.write(dat);
