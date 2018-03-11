@@ -10,14 +10,30 @@
 ---
 
 ### Configuration
-Edit app.js
+Edit config.json (will be automatically generated after your first run)
+
+#### Example Configuration
 
 ```javascript
-const config = {
-	"8080":{//External Port
+{
+	"80":{//External Port
 		"aiden.evdev.online":{//Filter
 			"internal":"localhost",//Internal Address
-			"port":80 //Internal Port
+			"port":4444 //Internal Port
+		},
+		"evdev.online":{//Filter, shorter filters last
+			"internal":"localhost",//Internal Address
+			"port":8888 //Internal Port
+		}
+	},
+	"443":{//External Port
+		"aiden.evdev.online":{//Filter
+			"internal":"localhost",//Internal Address
+			"port":4443 //Internal Port
+		},
+		"evdev.online":{//Filter, shorter filters last
+			"internal":"localhost",//Internal Address
+			"port":8443 //Internal Port
 		}
 	}
 }
