@@ -22,9 +22,9 @@ if(cluster.isMaster){
   });
 }else{
   for (externalPortStr in config) {
-    var externalPort = Int(externalPortStr); //Parse Int Optional
-    if (externalPort == undefined) { continue; } //Skip
-		(function(externalPort){
+		(function(externalPortStr){
+			var externalPort = Int(externalPortStr); //Parse Int Optional
+	    if (externalPort == undefined) { return; } //Skip
 			var server = net.createServer((socket) => {
 				console.log(`Worker ${process.pid} got A new connection on ${externalPort}`)
 	      socket.once('data', (buffer) => {
@@ -66,7 +66,7 @@ if(cluster.isMaster){
 	    }).listen(externalPort, () => {
 	      console.log(`Worker ${process.pid} listening on port ${externalPort}`);
 	    });
-		})(externalPort)
+		})(externalPortStr)
   }
   console.log(`Worker ${process.pid} started`);
 }
