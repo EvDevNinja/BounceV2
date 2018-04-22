@@ -1,3 +1,8 @@
+const commandLineArgs = require('command-line-args')
+const options = commandLineArgs({
+	{ name: 'verbose', alias: 'v', type: Boolean, defaultOption: false }
+})
+
 //Packages
 const cluster = require('cluster');
 const net = require('net');
@@ -35,7 +40,7 @@ if(cluster.isMaster){
 								client.write(buffer);
 	            });
 	            client.on('data', (dat) => {
-								console.log(`Worker ${process.pid}'s connection on ${externalPort} local client sent data.`)
+								if(options.verbose) console.log(`Worker ${process.pid}'s connection on ${externalPort} local client sent data.`)
 	              socket.write(dat);
 	            });
 	            client.on('error', (err) => {
@@ -46,7 +51,7 @@ if(cluster.isMaster){
 	              socket.end();
 	            });
 	            socket.on('data', (dat) => {
-								console.log(`Worker ${process.pid}'s connection on ${externalPort} remote socket sent data.`)
+								if(options.verbose) console.log(`Worker ${process.pid}'s connection on ${externalPort} remote socket sent data.`)
 	              client.write(dat);
 	            });
 	            socket.on('end', () => {

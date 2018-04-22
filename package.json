@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cluster": "^0.7.7",
+    "command-line-args": "^5.0.2",
     "fs": "0.0.1-security",
     "net": "^1.0.2",
     "os": "^0.1.1"
