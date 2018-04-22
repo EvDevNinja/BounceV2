@@ -1,7 +1,7 @@
 const commandLineArgs = require('command-line-args')
-const options = commandLineArgs({
+const options = commandLineArgs([
 	{ name: 'verbose', alias: 'v', type: Boolean, defaultOption: false }
-})
+])
 
 //Packages
 const cluster = require('cluster');
